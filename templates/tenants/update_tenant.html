@@ -1,0 +1,67 @@
+{% extends 'master.html' %}
+
+{% block content %}
+    <style>
+        form{
+            width: 35%;
+            margin: auto;
+
+        }
+        button{
+            width: 100px;
+            border: unset;
+            height: 30px;
+            border-radius: 10px;
+            margin-left: 25%;
+            margin-right: 25%;
+            background-color: #29ff0a;
+            color: #ff641c;
+            cursor: pointer;
+
+        }
+        input{
+            width: 100%;
+            height: 30px;
+            border-radius: 10px;
+            border: unset;
+            background-color: #f5fff8;
+            color: #2d1aff;
+            padding-left: 10px;
+
+        }
+        body{
+            background-color: #6ea8fe;
+        }
+    </style>
+     <!-- ======= Breadcrumbs ======= -->
+    <section id="breadcrumbs" class="breadcrumbs">
+      <div class="container">
+
+        <div class="d-flex justify-content-between align-items-center">
+          <h2>Updating a tenant</h2>
+          <ol>
+            <li><a href="{% url 'home-url' %}">Home</a></li>
+            <li>Updating a tenant</li>
+          </ol>
+        </div>
+
+      </div>
+    </section><!-- End Breadcrumbs -->
+<h3 class="text-warning text-center">Tenant update Form</h3>
+
+<form method="POST" action="/tenant/update/{{ tenant.id }}">
+    {% csrf_token %}
+    <div>
+    <input  placeholder="tenant first_name" class="form-control" name="first_name"  type="text"><br>
+    <input  placeholder="tenant last_name" class="form-control" name="last_name"  type="text"><br>
+    <input  placeholder="tenant email" class="form-control" name="email"  type="text"><br>
+    <input  placeholder="tenant phone_number" class="form-control" name="phone_number"   type="text"><br>
+    <input  placeholder="tenant zip_code" class="form-control" name="zip_code"   type="text"><br>
+    {{ form }}
+    </div>
+    <div class="form-group">
+        <input class="btn btn-info mt-4" value="update" type="submit">
+            </div>
+</form>
+
+{% endblock %}

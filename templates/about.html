@@ -1,0 +1,51 @@
+{% extends 'master.html' %}
+{% load static %}
+{% block content %}
+    <main id="main">
+
+    <!-- ======= Breadcrumbs ======= -->
+    <section id="breadcrumbs" class="breadcrumbs">
+      <div class="container">
+
+        <div class="d-flex justify-content-between align-items-center">
+          <h2>About Us</h2>
+          <ol>
+            <li><a href="{% url 'home-url' %}">Home</a></li>
+            <li>About Acumen Agency</li>
+          </ol>
+        </div>
+
+      </div>
+    </section><!-- End Breadcrumbs -->
+
+    <!-- ======= About Section ======= -->
+    <section id="about" class="about">
+      <div class="container">
+
+        <div class="row content">
+          <div class="col-lg-6">
+            <h2>"Your Home, Our Care"</h2>
+            <h3>Acumen Agency started in 2020, August</h3>
+          </div>
+          <div class="col-lg-6 pt-4 pt-lg-0">
+            <p>
+                Welcome to Acumen Agency, your one-stop solution for seamless and efficient housing management. We are a team of dedicated professionals committed to providing comprehensive housing management services that cater to the diverse needs of our clients.
+            </p>
+            <ul>
+              <li><i class="ri-check-double-line"></i>Tenant Management: We streamline tenant interactions, handling everything from screening and onboarding to rent collection and maintenance requests.</li>
+              <li><i class="ri-check-double-line"></i>Property Maintenance: We ensure your property stays in top condition, overseeing regular inspections, repairs, and renovations. </li>
+              <li><i class="ri-check-double-line"></i>Financial Management: We handle all financial aspects, including rent collection, invoice processing, and financial reporting.</li>
+            </ul>
+            <p class="fst-italic">
+              At Acumen Agency, we understand the complexities and challenges of managing properties, whether it's juggling tenant inquiries, maintaining property upkeep, or navigating legal and financial matters. That's why we've developed a robust housing management system that takes the burden off your shoulders, allowing you to focus on the bigger picture.
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </section><!-- End About Section -->
+
+
+
+  </main><!-- End #main -->
+{% endblock %}

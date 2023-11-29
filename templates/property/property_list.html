@@ -1,0 +1,72 @@
+{% extends 'master.html' %}
+
+{% block content %}
+     <style>
+        table{
+            width: 80%;
+            margin-left: 10%;
+            margin-right: 10%;
+        }
+        table, td, th{
+            border: 2px solid blue;
+            border-collapse: collapse;
+        }
+    </style>
+   <!-- ======= Breadcrumbs ======= -->
+    <section id="breadcrumbs" class="breadcrumbs">
+      <div class="container">
+
+        <div class="d-flex justify-content-between align-items-center">
+          <h2>All properties</h2>
+          <ol>
+            <li><a href="{% url 'home-url' %}">Home</a></li>
+            <li>The list of all properties managed</li>
+          </ol>
+        </div>
+
+      </div>
+    </section><!-- End Breadcrumbs -->
+<h1 class="text-info text-center">Property List</h1>
+{% for property in properties %}
+<table>
+    <thead>
+        <tr>
+            <th>Property Type</th>
+            <th>Address</th>
+            <th>Landlord</th>
+            <th>Neighbourhood</th>
+            <th>Zip Code</th>
+            <th>Description</th>
+            <th>Price</th>
+            <th>Bedrooms</th>
+            <th>Bathrooms</th>
+            <th>Image</th>
+            <th>Delete</th>
+            <th>Update</th>
+            <th>Details</th>
+        </tr>
+    </thead>
+    <tbody>
+
+        <tr>
+            <td>{{ property.property_type }}</td>
+            <td>{{ property.address }}</td>
+            <td>{{ property.landlord }}</td>
+            <td>{{ property.neighbourhood }}</td>
+            <td>{{ property.zip_code }}</td>
+            <td>{{ property.description }}</td>
+            <td>{{ property.price }}</td>
+            <td>{{ property.bedrooms }}</td>
+            <td>{{ property.bathrooms }}</td>
+            <td><img src="{{ property.image.url }}" width="100" height="100"></td>
+            <td><a href="/property/delete/{{ property.id }}">Delete</a></td>
+            <td><a href="/property/update/{{ property.id }}">Update</a></td>
+            <td><a href="/property/{{ property.id }}">Details</a></td>
+        </tr>
+
+    </tbody>
+</table>
+
+{% endfor %}
+
+{% endblock %}

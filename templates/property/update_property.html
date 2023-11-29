@@ -1,0 +1,73 @@
+{% extends 'master.html' %}
+{% load static %}
+{% block content %}
+    <style>
+        form{
+            width: 35%;
+            margin: auto;
+
+        }
+        button{
+            width: 100px;
+            border: unset;
+            height: 30px;
+            border-radius: 10px;
+            margin-left: 25%;
+            margin-right: 25%;
+            background-color: #29ff0a;
+            color: #ff641c;
+            cursor: pointer;
+
+        }
+        input{
+            width: 100%;
+            height: 30px;
+            border-radius: 10px;
+            border: unset;
+            background-color: #f5fff8;
+            color: #2d1aff;
+            padding-left: 10px;
+
+        }
+        body{
+            background-color: #6ea8fe;
+        }
+    </style>
+     <!-- ======= Breadcrumbs ======= -->
+    <section id="breadcrumbs" class="breadcrumbs">
+      <div class="container">
+
+        <div class="d-flex justify-content-between align-items-center">
+          <h2>Updating a property</h2>
+          <ol>
+            <li><a href="{% url 'home-url' %}">Home</a></li>
+            <li>Updating a property</li>
+          </ol>
+        </div>
+
+      </div>
+    </section><!-- End Breadcrumbs -->
+<h3 class="text-warning text-center">Tenant update Form</h3>
+
+<form method="POST" action="/property/update/{{ property.id }}" enctype="multipart/form-data" >
+    {% csrf_token %}
+    <div>
+    <input  placeholder="property type" class="form-control" name="type"  type="text"><br>
+    <input  placeholder="property address" class="form-control" name="address"  type="text"><br>
+    <input  placeholder="property landlord" class="form-control" name="landlord"  type="text"><br>
+    <input  placeholder="property neighbourhood" class="form-control" name="neighbourhood"   type="text"><br>
+    <input  placeholder="property zip_code" class="form-control" name="zip_code"   type="text"><br>
+    <input  placeholder="property description" class="form-control" name="description"  type="text"><br>
+    <input  placeholder="property price" class="form-control" name="price"  type="text"><br>
+    <input  placeholder="property bedrooms" class="form-control" name="bedrooms"   type="text"><br>
+    <input  placeholder="property bathrooms" class="form-control" name="bathrooms"   type="text"><br>
+         <label>property image</label><br>
+                <img src="{% static '../' %}" alt="categories" class="property-image img-fluid">
+                <input class="form-control" name="image" type="file"><br>
+    {{ form }}
+    </div>
+    <div class="form-group">
+        <input class="btn btn-info mt-4" value="update" type="submit">
+    </div>
+</form>
+{% endblock %}

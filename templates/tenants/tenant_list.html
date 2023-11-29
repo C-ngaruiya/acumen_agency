@@ -1,0 +1,65 @@
+{% extends 'master.html' %}
+
+{% block content %}
+    <main id="main">
+    <style>
+        table{
+            width: 80%;
+            margin-left: 10%;
+            margin-right: 10%;
+        }
+        table, td, th{
+            border: 2px solid blue;
+            border-collapse: collapse;
+        }
+    </style>
+     <!-- ======= Breadcrumbs ======= -->
+    <section id="breadcrumbs" class="breadcrumbs">
+      <div class="container">
+
+        <div class="d-flex justify-content-between align-items-center">
+          <h2>All tenant</h2>
+          <ol>
+            <li><a href="{% url 'home-url' %}">Home</a></li>
+            <li>The list of Tenant</li>
+          </ol>
+        </div>
+
+      </div>
+    </section><!-- End Breadcrumbs -->
+
+<h3 class="text-info text-center">Tenant List</h3>
+
+
+<table>
+    <thead>
+        <tr>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Email</th>
+            <th>Phone Number</th>
+            <th>Address</th>
+            <th>Delete</th>
+            <th>Update</th>
+            <th>Details</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for tenant in tenants %}
+        <tr>
+            <td>{{ tenant.first_name }}</td>
+            <td>{{ tenant.last_name }}</td>
+            <td>{{ tenant.email }}</td>
+            <td>{{ tenant.phone_number }}</td>
+            <td>{{ tenant.address }}</td>
+            <td><a href="/tenant/delete/{{ tenant.id }}">Delete</a></td>
+            <td><a href="/tenant/update/{{ tenant.id }}">update</a></td>
+            <td><a href="/tenant/{{ tenant.id }}">Details</a></td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+
+</main><!-- End #main -->
+{% endblock %}

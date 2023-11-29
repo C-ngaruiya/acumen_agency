@@ -1,0 +1,31 @@
+{% extends 'master.html' %}
+
+{% block content %}
+    <!-- ======= Breadcrumbs ======= -->
+    <section id="breadcrumbs" class="breadcrumbs">
+      <div class="container">
+
+        <div class="d-flex justify-content-between align-items-center">
+          <h2>Property details</h2>
+          <ol>
+            <li><a href="{% url 'home-url' %}">Home</a></li>
+            <li>Details of a property</li>
+          </ol>
+        </div>
+
+      </div>
+    </section><!-- End Breadcrumbs -->
+<h1 class="text-info">Property Detail</h1>
+
+<p>Property Type: {{ property.property_type }}</p>
+<p>Address: {{ property.address }}</p>
+<p>Landlord: {{ property.landlord }}</p>
+<p>Neighbourhood: {{ property.neighbourhood }}</p>
+<p>Zip Code: {{ property.zip_code }}</p>
+<p>Description: {{ property.description }}</p>
+<p>Price: {{ property.price }}</p>
+<p>Bedrooms: {{ property.bedrooms }}</p>
+<p>Bathrooms: {{ property.bathrooms }}</p>
+<p>Image: <img class="pic rounded-circle" src="{{ property.image.url }}" width="300" height="300"></p>
+
+{% endblock %}
